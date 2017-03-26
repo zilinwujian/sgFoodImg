@@ -57,7 +57,9 @@ def download(url,sortNum,fileNum,food):
 
         if len(ouResult) != 0 :
             filePath = fileDir + fileName + r".jpg"
-            fileDownload.downImageByURL(filePath,ouResult[0])
+            isSuccess=fileDownload.downImageByURL(filePath,ouResult[0])
+            if not isSuccess:
+                continue
             fileHandle.fileWrite(contextPath, "ou:" + ouResult[0] + "\n")
 
             if len(ptResult) == 0:

@@ -16,6 +16,11 @@ fileDir = r"/Users/liuxingyu/sgfoodImage2/";
 def downImageByURL(filePath,imgURL):
     agents = random.choice(AGENTS)
     headers = {'user-agent': agents}
-    response = requests.get(imgURL, stream=True, headers=headers)
-    with open(filePath, 'wb') as f:
-        f.write(response.content)
+    try:
+        response = requests.get(imgURL, stream=True, headers=headers)
+    except:
+        return False
+    else:
+        with open(filePath, 'wb') as f:
+            f.write(response.content)
+        return True
