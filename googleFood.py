@@ -93,9 +93,11 @@ if __name__ == "__main__":
     foodList = fileHandle.fileRead(fileName)
     sortNum = 1                                        # 文件种类数目
     for food in foodList:
-        if sortNum < 1:                                #从中断食物处重新运行，数字是中断数字的编号
+        if sortNum < 181:                               #从中断食物处重新运行，数字是中断数字的编号
             sortNum += 1
             continue
+        if sortNum > 181:                               #终止的编号
+            break
         fileNum = 1                                    # 该类下文件的个数
         for year in generateURL.years:
             time.sleep(1)                              #每个url休眠一秒
